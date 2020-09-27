@@ -14,6 +14,20 @@ public class PromotionCDCombo implements Promotion {
 	public Double apply(CartDTO cart) {
 		// TODO Auto-generated method stub
 
+		if (cart.getSkuC() > 0 && cart.getSkuD() > 0) {
+
+			double totalAfterCombo = 0.0;
+
+			int totalCombos = cart.getSkuC() < cart.getSkuD() ? cart.getSkuC() : cart.getSkuD();
+
+			totalAfterCombo += totalCombos * comboPrice;
+
+			cart.setSkuC(cart.getSkuC() - totalCombos);
+			cart.setSkuD(cart.getSkuD() - totalCombos);
+
+			return totalAfterCombo;
+		}
+
 		return 0.0;
 	}
 
