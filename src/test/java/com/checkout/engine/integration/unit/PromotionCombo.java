@@ -26,6 +26,7 @@ public class PromotionCombo {
 	private CartDTO cartObj0() {
 		CartDTO cart = new CartDTO();
 		cart.setPromotionPackage("P1");
+
 		return cart;
 	}
 
@@ -39,7 +40,27 @@ public class PromotionCombo {
 		return cart;
 	}
 
-	
+	private CartDTO cartObj2() {
+		CartDTO cart = new CartDTO();
+		cart.setSkuA(6);
+		cart.setSkuB(5);
+		cart.setSkuC(1);
+		cart.setPromotionPackage("P1");
+
+		return cart;
+	}
+
+	private CartDTO cartObj3() {
+		CartDTO cart = new CartDTO();
+		cart.setSkuA(3);
+		cart.setSkuB(5);
+		cart.setSkuC(1);
+		cart.setSkuD(1);
+		cart.setPromotionPackage("P1");
+
+		return cart;
+	}
+
 	@Test
 	public void test0Promotio3A() {
 		CartDTO cartObj = cartObj0();
@@ -51,6 +72,20 @@ public class PromotionCombo {
 	public void test1Promotion3A() {
 		CartDTO cartObj = cartObj1();
 		assertThat(promotion3ACombo.apply(cartObj)).isEqualTo(0.0);
+
+	}
+
+	@Test
+	public void test2Promotion3A() {
+		CartDTO cartObj = cartObj2();
+		assertThat(promotion3ACombo.apply(cartObj)).isEqualTo(260.0);
+
+	}
+
+	@Test
+	public void test3Promotion3A() {
+		CartDTO cartObj = cartObj3();
+		assertThat(promotion3ACombo.apply(cartObj)).isEqualTo(130.0);
 
 	}
 }
