@@ -1,5 +1,8 @@
 package com.checkout.engine.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +16,7 @@ public class PromotionService {
 	@Autowired
 	PromotionFactory promotionFactory;
 
-	public Double calculateTotal(CartDTO cart) {
+	public Map<String, Double> calculateTotal(CartDTO cart) {
 
 		String promotionPackage = cart.getPromotionPackage();
 
@@ -23,7 +26,9 @@ public class PromotionService {
 
 		PromotionCategory promotionCategory = promotionFactory.getPromotionCategory(cart.getPromotionPackage());
 
-		return promotionCategory.applyPromotions(cart);
+		Map<String, Double> totalPrice = new HashMap<>();
+		totalPrice.put("total", promotionCategory.applyPromotions(cart));
+		return totalPrice;
 	}
 
 }

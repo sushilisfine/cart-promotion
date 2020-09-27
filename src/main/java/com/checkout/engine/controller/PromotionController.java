@@ -1,5 +1,7 @@
 package com.checkout.engine.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,7 @@ public class PromotionController {
 	PromotionService promotionService;
 
 	@PostMapping(value = "/v1/checkout")
-	public Double checkout(@RequestBody CartDTO cart) {
+	public Map<String, Double> checkout(@RequestBody CartDTO cart) {
 		return promotionService.calculateTotal(cart);
 	}
 }
