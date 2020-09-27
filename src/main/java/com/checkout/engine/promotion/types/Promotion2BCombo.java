@@ -8,9 +8,16 @@ import com.checkout.engine.promotion.Promotion;
 @Component
 public class Promotion2BCombo implements Promotion {
 
+	// Price of combo when combined
 	private final double comboPrice = 45.0;
+	
+	// count of B to combined to create promotional combo
 	private final int comboCount = 2;
 
+	/*
+	 * if 2 B SKU's combination available , Calculate combo cost and set the
+	 * remaining B i.e reminder when divided by combo count in the Cart Object
+	 */
 	@Override
 	public Double apply(CartDTO cart) {
 		// TODO Auto-generated method stub

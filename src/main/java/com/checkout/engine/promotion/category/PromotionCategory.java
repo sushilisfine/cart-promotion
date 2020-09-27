@@ -15,6 +15,10 @@ public interface PromotionCategory {
 	public static final SKU_C skuC = new SKU_C();
 
 	public static final SKU_D skuD = new SKU_D();
+	/*
+	 * calculate total with respect to price of respective SKU's without any
+	 * promotion
+	 */
 
 	default Double leftOverSkuTotal(CartDTO cart) {
 

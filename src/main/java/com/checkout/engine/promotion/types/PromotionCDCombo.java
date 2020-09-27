@@ -8,8 +8,13 @@ import com.checkout.engine.promotion.Promotion;
 @Component
 public class PromotionCDCombo implements Promotion {
 
+	// Price of combo when combined
 	private final double comboPrice = 30.0;
 
+	/*
+	 * if C & D SKU's available , Calculate combo cost and set the remaining C & D
+	 * respectively in the Cart Object
+	 */
 	@Override
 	public Double apply(CartDTO cart) {
 		// TODO Auto-generated method stub

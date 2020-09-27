@@ -11,7 +11,10 @@ public class PromotionCategoryP1 implements PromotionCategory {
 	Promotion2BCombo promotion2BCombo = new Promotion2BCombo();
 	PromotionCDCombo promotionCDCombo = new PromotionCDCombo();
 
-	public Double applyPromotions(CartDTO cart) {
+	/*
+	 * apply all promotions and calculate total and then calculate the total of
+	 * leftover SKU's after promotion is applied
+	 */	public Double applyPromotions(CartDTO cart) {
 
 		Double total = 0.0;
 		total += promotion3ACombo.apply(cart);

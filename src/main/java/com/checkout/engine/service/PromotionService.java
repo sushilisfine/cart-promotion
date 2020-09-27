@@ -24,6 +24,7 @@ public class PromotionService {
 		if (promotionPackage == null)
 			promotionPackage = "P1";
 
+		// Factory method to get the object of the promotional package to be applied
 		PromotionCategory promotionCategory = promotionFactory.getPromotionCategory(cart.getPromotionPackage());
 
 		Map<String, Double> totalPrice = new HashMap<>();
