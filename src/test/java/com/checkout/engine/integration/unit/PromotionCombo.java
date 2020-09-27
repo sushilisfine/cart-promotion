@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.checkout.engine.entities.dto.CartDTO;
 import com.checkout.engine.promotion.types.Promotion2BCombo;
 import com.checkout.engine.promotion.types.Promotion3ACombo;
+import com.checkout.engine.promotion.types.PromotionCDCombo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,6 +25,9 @@ public class PromotionCombo {
 
 	@Autowired
 	private Promotion2BCombo promotion2BCombo;
+
+	@Autowired
+	private PromotionCDCombo promotionCDCombo;
 
 	private CartDTO cartObj0() {
 		CartDTO cart = new CartDTO();
@@ -116,5 +120,33 @@ public class PromotionCombo {
 	public void test3Promotion2B() {
 		CartDTO cartObj = cartObj3();
 		assertThat(promotion2BCombo.apply(cartObj)).isEqualTo(90.0);
+	}
+
+	@Test
+	public void test0PromotioCD() {
+		CartDTO cartObj = cartObj0();
+		assertThat(promotionCDCombo.apply(cartObj)).isEqualTo(0.0);
+
+	}
+
+	@Test
+	public void test1PromotionCD() {
+		CartDTO cartObj = cartObj1();
+		assertThat(promotionCDCombo.apply(cartObj)).isEqualTo(0.0);
+
+	}
+
+	@Test
+	public void test2PromotionCD() {
+		CartDTO cartObj = cartObj2();
+		assertThat(promotionCDCombo.apply(cartObj)).isEqualTo(0.0);
+
+	}
+
+	@Test
+	public void test3PromotionCD() {
+		CartDTO cartObj = cartObj3();
+		assertThat(promotionCDCombo.apply(cartObj)).isEqualTo(30.0);
+
 	}
 }
