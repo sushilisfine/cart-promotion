@@ -1,4 +1,4 @@
-package com.checkout.engine.integration.unit;
+package com.checkout.engine.unit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
