@@ -14,6 +14,21 @@ public class Promotion2BCombo implements Promotion {
 	@Override
 	public Double apply(CartDTO cart) {
 		// TODO Auto-generated method stub
+
+		if (cart.getSkuB() > 0) {
+
+			double totalAfterCombo = 0.0;
+
+			int totalCombos = cart.getSkuB() / comboCount;
+			int leftOverSku = cart.getSkuB() % comboCount;
+
+			totalAfterCombo += totalCombos * comboPrice;
+
+			cart.setSkuB(leftOverSku);
+
+			return totalAfterCombo;
+		}
+
 		return 0.0;
 	}
 
